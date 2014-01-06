@@ -54,19 +54,19 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/d3-chart.csv", function(error, data) {
-  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "State"; }));
+d3.csv("data/type-a.csv", function(error, data) {
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "DayType"; }));
 
   data.forEach(function(d) {
     var y0 = 0;
-    d.ages = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
-    d.total = d.ages[d.ages.length - 1].y1;
+    d.PeriodName = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+    d.Duration = d.PeriodName[d.PeriodName.length - 1].y1;
   });
 
   data.sort(function(a, b) { return b.total - a.total; });
 
-  x.domain(data.map(function(d) { return d.State; }));
-  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+  x.domain(data.map(function(d) { return d.PeriodName; }));
+  y.domain([0, d3.max(data, function(d) { return d.Duration; })]);
 
   svg.append("g")
       .attr("class", "x axis")
