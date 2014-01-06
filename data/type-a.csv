@@ -1,0 +1,17 @@
+DayType, PeriodName, Duration
+Standard,Registration,20
+Standard,P1,60
+Standard,P2,60
+Standard,Break,20
+Standard,P3,60
+Standard,P4,60
+Standard,Lunch,45
+Standard,P5,60
+EarlyLunch,Registration,20
+EarlyLunch,P1,60
+EarlyLunch,P2,60
+EarlyLunch,Break,20
+EarlyLunch,P3,60
+EarlyLunch,Lunch,45
+EarlyLunch,P4,60
+EarlyLunch,P5,60
